@@ -54,10 +54,10 @@ ExternalProject_Add(
     BUILD_COMMAND "make" "${MAKE_ARGS}"
     INSTALL_COMMAND "make" "install"
 )
-
+set(FFMPEG_LIBS avcodec avfilter avutil swresample avdevice avformat postproc swscale)
 include_directories("${CMAKE_BINARY_DIR}/FFmpeg/include")
+link_directories("${CMAKE_BINARY_DIR}/FFmpeg/lib")
 
 add_executable(test.html main.c wasm_io.c demuxing_decoding.c)
 add_dependencies(test.html ffmpeg)
-file(GLOB FFMPEG_LIBS "${CMAKE_BINARY_DIR}/FFmpeg/lib/*.a")
 target_link_libraries(test.html ${FFMPEG_LIBS})
