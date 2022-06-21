@@ -3,11 +3,12 @@ A wasm built for FFMpeg
 
 ## How to build
 
-First clone/update and cd to the root of the source.
+First follow the [instruction](https://emscripten.org/docs/getting_started/index.html) to setup emscripten environment. 
 
-Update the ffmpeg module
+Clone the repository and update the ffmpeg module
 
 ```bash
+git clone <url>
 git submodule update --init
 ```
 
